@@ -1,54 +1,86 @@
-body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
+html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #f4f4f4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    #root {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
     }
 
     .todo-container {
       background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .todo-container:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
     .todo-input {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .todo-input input {
       flex-grow: 1;
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
       margin-right: 10px;
+      transition: border-color 0.3s ease;
+    }
+
+    .todo-input input:focus {
+      outline: none;
+      border-color: #4CAF50;
     }
 
     .todo-input button {
-      padding: 10px 15px;
+      padding: 12px 18px;
       background-color: #4CAF50;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .todo-input button:hover {
+      background-color: #45a049;
     }
 
     .todo-filters {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .todo-filters button {
       background-color: #f0f0f0;
       border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
+      padding: 10px 15px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-right: 5px;
+      transition: all 0.3s ease;
+      font-size: 0.9em;
+    }
+
+    .todo-filters button:hover {
+      background-color: #e0e0e0;
     }
 
     .todo-filters button.active {
@@ -59,14 +91,21 @@ body {
     .todo-list {
       list-style-type: none;
       padding: 0;
+      max-height: 400px;
+      overflow-y: auto;
     }
 
     .todo-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
       border-bottom: 1px solid #eee;
+      transition: background-color 0.3s ease;
+    }
+
+    .todo-item:hover {
+      background-color: #f9f9f9;
     }
 
     .todo-item.completed {
@@ -76,38 +115,70 @@ body {
 
     .todo-item .todo-actions {
       display: flex;
-      gap: 5px;
+      gap: 8px;
     }
 
     .todo-item button {
       background-color: #f44336;
       color: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 0.9em;
     }
 
     .todo-item button:nth-child(2) {
       background-color: #2196F3;
     }
 
+    .todo-item button:hover {
+      opacity: 0.9;
+    }
+
     .edit-todo {
       display: flex;
-      gap: 5px;
+      gap: 8px;
       width: 100%;
     }
 
     .edit-todo input {
       flex-grow: 1;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+
+    .edit-todo input:focus {
+      outline: none;
+      border-color: #4CAF50;
     }
 
     .todo-summary {
-      margin-top: 20px;
+      margin-top: 25px;
       text-align: center;
       color: #666;
       font-size: 0.9em;
+      background-color: #f8f8f8;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .todo-container {
+        width: 95%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .todo-filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .todo-filters button {
+        margin-bottom: 10px;
+      }
     }
